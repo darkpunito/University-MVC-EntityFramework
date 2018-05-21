@@ -1,0 +1,36 @@
+﻿@model Project_mvc.WebApplication.Models.Student
+@{
+    ViewBag.Title = "About";
+}
+
+@Html.ValidationSummary(false, null, new { @class = "text-danger" } )
+<div class="row">
+    @using (Html.BeginForm("About", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Name, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Surname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Surname, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success" value="Register"/>
+    }
+</div>
