@@ -1,4 +1,5 @@
-﻿using Project_mvc.WebApplication.Models;
+﻿using Project_mvc.Service.Service;
+using Project_mvc.WebApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace Project_mvc.WebApplication.Controllers
 {
     public class HomeController : Controller
     {
+        IStudentService StudentService;
+        public HomeController(IStudentService studentService)
+        {
+            StudentService = studentService;
+        }
         public ActionResult Index()
         {
             var vm = GetStudents();
@@ -25,8 +31,7 @@ namespace Project_mvc.WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                //ToDo
-                //zapisz studenta
+                StudentService.AddStudent();
                 return RedirectToAction("Index");
             }
             else
