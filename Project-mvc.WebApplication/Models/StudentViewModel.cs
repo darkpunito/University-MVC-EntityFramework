@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.Web.Mvc;
 
 namespace Project_mvc.WebApplication.Models
 {
-    public class Student
+    public class StudentViewModel
     {
         public int ID { get; set; }
         [Required(ErrorMessage = "Uzupelnij pole name")]
@@ -20,6 +18,8 @@ namespace Project_mvc.WebApplication.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [Required]
+        public string SelectedProvince { get; set; }
+        public IEnumerable<SelectListItem> Provinces { get; set; }
     }
-
 }

@@ -1,11 +1,11 @@
-﻿@model Project_mvc.WebApplication.Models.Student
+﻿@model Project_mvc.WebApplication.Models.StudentViewModel
 @{
     ViewBag.Title = "About";
 }
 
 @Html.ValidationSummary(false, null, new { @class = "text-danger" } )
 <div class="row">
-    @using (Html.BeginForm("About", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("Create", "Student", FormMethod.Post, new { @class = "form-horizontal" }))
     {
         <div class="form-group">
             @Html.LabelFor(m => m.Name, new { @class = "control-label col-md-2" })
@@ -31,6 +31,12 @@
                 @Html.EditorFor(m => m.Password, new { @class = "form-control" })
             </div>
         </div>
-        <input type="submit" class="btn btn-success" value="Register"/>
+        <div class="form-group">
+            @Html.LabelFor(m => m.SelectedProvince, new { @class = "col-md-2 control-label" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(m => m.SelectedProvince, Model.Provinces, new { @class = "form-control" })
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success" value="Register" />
     }
 </div>

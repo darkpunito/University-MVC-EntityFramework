@@ -1,26 +1,5 @@
-﻿@model IEnumerable<Project_mvc.WebApplication.Models.Student>
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
-<table>
-    <thead>
-        <tr>
-            <td>ID</td>
-            <td>Email</td>
-            <td>Name</td>
-            <td>Surname</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var student in Model)
-        {
-            <tr>
-                <td>@student.ID</td>
-                <td>@student.Email</td>
-                <td>@student.Name</td>
-                <td>@student.Surname</td>
-            </tr>
-        }
-    </tbody>
-</table>
+Index kontrolera Home
